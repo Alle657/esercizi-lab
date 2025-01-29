@@ -13,12 +13,18 @@ int main(void) {
 
     for(int i = 0; i<dim-1; i++) {
         inputArray(array, dim);
+        int hoFattoScambi = 0;
         for(int k = 0; k<dim-1-i; k++) {
+
             if(array[k] < array[k+1]) {
                 temp = array[k];
                 array[k] = array[k+1];
                 array[k+1] = temp;
+                hoFattoScambi = 1;
             }
+        }
+        if(hoFattoScambi == 0){
+            break;
         }
 
     }
