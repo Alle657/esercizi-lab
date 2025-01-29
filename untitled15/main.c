@@ -1,26 +1,31 @@
 #include <stdio.h>
-void inputArray(int array[], int dim){
-    for(int i = 0;i < dim; i++){
-        printf("%d \t", array[i]);
+
+void inputvoti(int voti[], int dim) {
+    for (int i = 0; i < dim; i++) {
+        printf("%d \t", voti[i]);
     }
 }
 
 
 int main(void) {
     int temp;
-    int dim = 6;
-    int array[6] = {12,7,3,9,6,15};
+    int dim = 7;
+    int voti[7] = {6, 9, 3, 5, 7, 2,3};
+    char persone[7] = {'A','B','C','D','E','F', 'G'};
 
     for(int i = 0; i<dim-1; i++) {
-        inputArray(array, dim);
+
         int hoFattoScambi = 0;
         for(int k = 0; k<dim-1-i; k++) {
 
-            if(array[k] < array[k+1]) {
-                temp = array[k];
-                array[k] = array[k+1];
-                array[k+1] = temp;
+            if(voti[k] > voti[k+1]) {
+                temp = voti[k];
+                voti[k] = voti[k+1];
+                voti[k+1] = temp;
                 hoFattoScambi = 1;
+                char u = persone[k];
+                persone[k] = persone[k+1];
+                persone[k+1] = u;
             }
         }
         if(hoFattoScambi == 0){
@@ -28,9 +33,9 @@ int main(void) {
         }
 
     }
-    inputArray(array, dim);
-
-
+    for(int i = 0;i<dim;i++){
+        printf("%d  %c\n", voti[i], persone[i]);
+    }
 
 
     return 0;
